@@ -1,0 +1,51 @@
+{% extends "base.html" %}{% load staticfiles %}
+
+{% block content %} <!-- This block content is placed inside of base.html body -->
+
+<!-- Our Firm
+================================================== -->
+<div class="masthead">
+  <div class="container">
+    <h1>Our Firm</h1>
+    <p id="ourFirm">We are a full-service Accounting and Bookkeeping firm serving small to medium sized business throughout the Bay Area. Our company is dedicated to providing our clients with professional, personalized services and guidance in a wide range of accounting needs. We listen to your needs and goals and develop a plan to execute them to ensure financial viability of your business. Whether you are a current or prospective client, rest assured that you will receive our dedication to all the business principles to make you successful.</p>
+    <a class="btn btn-primary btn-lg" role="button">View our Services</a>
+  </div>
+</div>
+<div class="company container" ng-app="CygnusApp" ng-controller="CygnusCtrl">
+  <link href="{{ STATIC_URL }}css/styles.css" rel="stylesheet">
+
+  <br><br> <!-- remove later -->
+
+  <!-- Founders
+  ================================================== -->
+  <div class="founders">
+    <h1>Meet the Team</h1>
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+    {% verbatim %}
+      <div class="col-md-4" ng-repeat="founder in founders">
+        <img data-animation="am-flip-x" bs-tooltip="founder.quote" data-html="true" class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+        <h2>{{ founder.name }}, {{ founder.title }}</h2>
+        <p>{{ founder.desc }}</p>
+      </div><!-- /.col-md-4 -->
+    {% endverbatim %}
+    </div><!-- /.row -->
+  </div><!-- / .founders -->
+  
+  <hr class="divider">
+
+  <!-- Team Members
+  ================================================== -->
+  <div class="team">
+    <div class="row">
+    {% verbatim %}
+      <div class="member col-xs-6 col-sm-4 col-md-3" ng-repeat="member in team">
+        <img data-animation="am-flip-x" bs-tooltip="member.quote" data-html="true" src="http://placehold.it/140x140" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+        <h2>{{ member.name }}</h2>
+        <p>{{ member.desc }}</p>
+      </div><!-- /.col-md-4 -->
+    {% endverbatim %}
+    </div><!-- /.row -->
+  </div><!-- / .team -->
+</div>
+{% endblock %}

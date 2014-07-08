@@ -1,0 +1,103 @@
+/* Positioning */
+/* Display & Box Model */
+/* Background and typography styles */
+/* Transitions */
+/* Other */
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* line 10, ../../../sass_files/styles.scss */
+#indicator {
+  position: fixed;
+  top: 0;
+  height: 20px;
+  width: 100%;
+  min-width: 1200px;
+  widows: auto;
+  z-index: 10; }
+  /* line 17, ../../../sass_files/styles.scss */
+  #indicator p {
+    margin-left: 10px; }
+
+/* Center align the text within the three columns below the carousel */
+/* line 25, ../../../sass_files/styles.scss */
+.founders .col-md-4 {
+  margin-bottom: 20px;
+  text-align: center; }
+  /* line 28, ../../../sass_files/styles.scss */
+  .founders .col-md-4 p {
+    margin-right: 10px;
+    margin-left: 10px; }
+/* line 33, ../../../sass_files/styles.scss */
+.founders h2 {
+  font-weight: normal; }
+/* line 36, ../../../sass_files/styles.scss */
+.founders h1 {
+  text-align: center;
+  margin-bottom: 40px; }
+
+/* line 42, ../../../sass_files/styles.scss */
+.team .row {
+  align: center; }
+
+/* line 46, ../../../sass_files/styles.scss */
+.member {
+  margin: 40px 0;
+  text-align: center; }
+
+/* line 51, ../../../sass_files/styles.scss */
+.masthead {
+  background-image: url("../img/The_two_bridges_insta.jpg");
+  background-size: 100% auto;
+  /* width and height, can be %, px or whatever. */
+  height: 480px;
+  color: white;
+  padding: 10% 0; }
+  /* line 57, ../../../sass_files/styles.scss */
+  .masthead p, .masthead h1 {
+    text-shadow: 2px 2px #000; }
+  /* line 60, ../../../sass_files/styles.scss */
+  .masthead p {
+    font-size: 20px; }
+
+/* RESPONSIVE STYLES
+-------------------------------------------------- */
+/* xs, sm */
+/* phones; bootstrap - xs */
+@media (max-width: 768px) {
+  /* line 74, ../../../sass_files/styles.scss */
+  #indicator {
+    background: #FDC68A;
+    /* orange */ }
+
+  /* line 79, ../../../sass_files/styles.scss */
+  .founders .col-md-4 p {
+    margin: 0 6%; }
+
+  /* line 84, ../../../sass_files/styles.scss */
+  .masthead {
+    background-size: auto 100%; }
+    /* line 85, ../../../sass_files/styles.scss */
+    .masthead p {
+      font-size: 16px; } }
+/* phablets; bootstrap - sm */
+@media (min-width: 768px) and (max-width: 992px) {
+  /* line 94, ../../../sass_files/styles.scss */
+  #indicator {
+    background: #C4DF9B;
+    /* green */ }
+
+  /* line 99, ../../../sass_files/styles.scss */
+  .founders .col-md-4 p {
+    margin: 0 12%; } }
+/* tablets; bootstrap - md */
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* line 108, ../../../sass_files/styles.scss */
+  #indicator {
+    background: #6ECFF6;
+    /* cyan */ } }
+/* large screens; bootstrap - lg */
+@media (min-width: 1200px) {
+  /* line 115, ../../../sass_files/styles.scss */
+  #indicator {
+    background: #A187BE;
+    /* purple */ } }

@@ -1,0 +1,66 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cygnus Management - Accounting and Bookkeeping Services">
+    <meta name="author" content="Mark Anthony Serrano - markanthonyserrano.com">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Cygnus Management - Accounting and Bookkeeping Services</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ STATIC_URL }}css/lib/bootstrap.min.css" rel="stylesheet">
+    <!-- Angular-Strap CSS library -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/lib/angular-motion.min.css">
+
+    <!-- glyphicons - font awesome CDN -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="indicator">
+      <p class="visible-xs">DEBUG: xs - phones</p>
+      <p class="visible-sm">DEBUG: sm - small screens</p>
+      <p class="visible-md">DEBUG: md - tablets</p>
+      <p class="visible-lg">DEBUG: lg - large screens</p>
+    </div>
+
+      {% block content %}{% endblock content %}
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>
+          &copy; 2014 Cygnus Management, LLC 
+          &middot; 
+          <a href="#">Privacy</a> 
+          &middot; 
+          <a href="#">Terms</a>
+        </p>
+      </footer>
+      
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    {% block javascript %}
+    <script src="{{ STATIC_URL }}js/lib/angular.min.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/angular-animate.min.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/angular-sanitize.min.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/angular-strap.min.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/angular-strap.tpl.js"></script>
+ 
+
+    <script src="{{ STATIC_URL }}js/app.js"></script>
+    {% endblock javascript %}
+  </body>
+</html>
