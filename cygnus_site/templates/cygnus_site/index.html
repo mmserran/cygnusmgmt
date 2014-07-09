@@ -1,52 +1,102 @@
 {% extends "base.html" %}{% load staticfiles %}
 
 {% block content %} <!-- This block content is placed inside of base.html body -->
-<div class="container" ng-app="LolCompApp" ng-controller="LolCompCtrl">
+<div ng-app="CygnusApp" ng-controller="CygnusCtrl">
   <link href="{{ STATIC_URL }}css/styles.css" rel="stylesheet">
- 
 
-      <!-- START THE FEATURETTES -->
+  <!-- Top Jumbotron
+  ================================================== -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Hello, world!</h1>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+    </div>
+  </div> <!-- ./jumbotron -->
 
-      <hr class="featurette-divider">
+  <!-- Navbar
+  ================================================== -->
 
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
+
+  <!-- Trait Highlights
+  ================================================== -->
+  <div class="container">
+    <!-- Three columns of text below the carousel -->
+    <div class="highlights row">
+      <div class="col-md-4">
+        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+        <h2>Accounting Specialists</h2>
+        <p>Our company provide a broad spectrum of accounting and bookkeeping services customized to meet the needs of your business. We have a team of experienced bookkeepers and accountants at your disposal. Our services are designed to provide you with reliable, cost-effective solutions. Our dedication to your company’s success means you can count on us for all your accounting needs.</p>
+      </div><!-- /.col-md-4 -->
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+        <h2>Our Team</h2>
+        <p>By partnering with us, we can help manage your day-to-today accounting needs so that you can concentrate on maximizing your core business, which is essential to businesses that are positioned for growth. No matter what your needs are, with a certified professional by your side, rest asure that all your bookkeeping is in order.</p>
+      </div><!-- /.col-md-4 -->
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+        <h2>Software Specialization</h2>
+        <p>We work with well known software programs like Oracle11i, QuickBooks, Netsuite, Great Plains, MS Access, MS Excel and other popular accounting applications.</p>
+      </div><!-- /.col-md-4 -->
+    </div><!-- /.row -->
+  </div><!-- / .highlights -->
+
+
+  <!-- Featurettes
+  ================================================== -->
+  <div class="container">
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Professionalism.</h2>
+        <p class="lead">Our firm is one of the leading firms in the area. By combining our expertise, experience and the energy of our staff, each client receives close personal and professional attention.
+
+Our high standards, service and specialized staff spell the difference between our outstanding performance, and other firms. We make sure that every client is served by the expertise of our whole firm.</p>
       </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-responsive" src="http://placehold.it/500x500" alt="Generic placeholder image">
       </div>
+    </div>
 
-      <hr class="featurette-divider">
+    <hr class="featurette-divider">
 
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
+    <div class="row featurette test">
+      <div class="col-md-5">
+        <img class="featurette-image img-responsive" src="http://placehold.it/500x500" alt="Generic placeholder image">
       </div>
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Quality</h2>
+        <p class="lead">An accounting firm is known for the quality of its service. Our firm's reputation reflects the high standards we demand of ourselves.
 
-      <hr class="featurette-divider">
+Our primary goal as a trusted advisor is to be available and to provide insightful advice to enable our clients to make informed financial decisions. We do not accept anything less from ourselves and this is what we deliver to you.
 
-      <!-- /END THE FEATURETTES -->
+We feel it is extremely important to continually professionally educate ourselves to improve our technical expertise, financial knowledge and service to our clients. Our high service quality and "raving fan" clients are the result of our commitment to excellence. We will answer all of your questions, as they impact both your tax and financial situations.</p>
+      </div>
+    </div>
 
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Responsiveness</h2>
+        <p class="lead">Our firm is responsive. Companies who choose our firm rely on competent advice and fast, accurate personnel. We provide total financial services to individuals, large and small businesses and other agencies.
+
+To see a listing of our services, please take a moment and look at our services page. Because we get new business from the people who know us best, client referrals have fueled our growth in the recent years.
+
+Through hard work, we have earned the respect of the business and financial communities. This respect illustrates our diverse talents, dedication and ability to respond quickly.</p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-responsive" src="http://placehold.it/500x500" alt="Generic placeholder image">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+  
+  </div> <!-- ./container -->
 
 </div>
 {% endblock %}

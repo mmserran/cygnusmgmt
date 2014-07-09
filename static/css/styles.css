@@ -20,18 +20,18 @@
 
 /* Center align the text within the three columns below the carousel */
 /* line 25, ../../../sass_files/styles.scss */
-.founders .col-md-4 {
+.highlights .col-md-4, .founders .col-md-4 {
   margin-bottom: 20px;
   text-align: center; }
   /* line 28, ../../../sass_files/styles.scss */
-  .founders .col-md-4 p {
+  .highlights .col-md-4 p, .founders .col-md-4 p {
     margin-right: 10px;
     margin-left: 10px; }
 /* line 33, ../../../sass_files/styles.scss */
-.founders h2 {
+.highlights h2, .founders h2 {
   font-weight: normal; }
 /* line 36, ../../../sass_files/styles.scss */
-.founders h1 {
+.highlights h1, .founders h1 {
   text-align: center;
   margin-bottom: 40px; }
 
@@ -70,7 +70,7 @@
     /* orange */ }
 
   /* line 79, ../../../sass_files/styles.scss */
-  .founders .col-md-4 p {
+  .highlights .col-md-4 p, .founders .col-md-4 p {
     margin: 0 6%; }
 
   /* line 84, ../../../sass_files/styles.scss */
@@ -87,7 +87,7 @@
     /* green */ }
 
   /* line 99, ../../../sass_files/styles.scss */
-  .founders .col-md-4 p {
+  .highlights .col-md-4 p, .founders .col-md-4 p {
     margin: 0 12%; } }
 /* tablets; bootstrap - md */
 @media (min-width: 992px) and (max-width: 1200px) {
