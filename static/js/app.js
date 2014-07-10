@@ -1,12 +1,11 @@
 'use strict';
 
 /* Declare angular module */
-var CygnusApp = angular.module('CygnusApp', ['ngAnimate', 'ngSanitize', 'mgcrea.ngStrap'])
+var CygnusApp = angular.module('CygnusApp', ['$window', 'ngAnimate', 'ngSanitize', 'mgcrea.ngStrap'])
 
 /* Cygnus website main controller */
 angular.module('CygnusApp').controller('CygnusCtrl', function($scope) {
 
-  $scope.msg = 'angular is working';
   $scope.tooltip = {title: 'Hello Tooltip<br />This is a multiline message!', checked: false};
 
   $scope.founders = [
@@ -18,6 +17,8 @@ angular.module('CygnusApp').controller('CygnusCtrl', function($scope) {
       desc:"A mechanical engineer by trade. Jerry earned his engineering degree at Don Bosco University, Philippines. He has 18 years of sales and marketing experience." },
 
   ]
+
+  $scope.msg = "helllo"
 
   $scope.team = [
     { name:"John", title:"", quote:{title: 'Accountant', checked: false},
