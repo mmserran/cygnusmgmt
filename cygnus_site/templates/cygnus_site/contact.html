@@ -4,7 +4,14 @@
 <div class="container" ng-app="LolCompApp" ng-controller="LolCompCtrl">
   <link href="{{ STATIC_URL }}css/styles.css" rel="stylesheet">
  
-duu hulo
+  <form action="mailto:cygnusmgmt2@gmail.com" method="get" enctype="text/plain">
+    <p>Name: <input type="text" name="name" /></p>
+    <p>Email: <input type="text" name="email" /></p>
+    <p>Comments:<br />
+    <textarea cols="30" rows="20" name="comments"></textarea></p>
+    <p><input type="submit" name="submit" value="Send" />
+    <input type="reset" name="reset" value="Clear Form" /></p>
+  </form>
 
 </div>
 {% endblock %}

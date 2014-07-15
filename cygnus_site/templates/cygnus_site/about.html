@@ -1,24 +1,41 @@
 {% extends "base.html" %}{% load staticfiles %}
 
 {% block content %} <!-- This block content is placed inside of base.html body -->
-
-<!-- Our Firm
-================================================== -->
-<div class="masthead">
-  <div class="container">
-    <h1>Our Firm</h1>
-    <p id="ourFirm">We are a full-service Accounting and Bookkeeping firm serving small to medium sized business throughout the Bay Area. Our company is dedicated to providing our clients with professional, personalized services and guidance in a wide range of accounting needs. We listen to your needs and goals and develop a plan to execute them to ensure financial viability of your business. Whether you are a current or prospective client, rest assured that you will receive our dedication to all the business principles to make you successful.</p>
-    <a class="btn btn-primary btn-lg" role="button">View our Services</a>
-  </div>
-</div>
-<div class="company container" ng-app="CygnusApp" ng-controller="CygnusCtrl">
+<div ng-app="CygnusApp" ng-controller="CygnusCtrl">
   <link href="{{ STATIC_URL }}css/styles.css" rel="stylesheet">
+
+
+  <!-- Navbar
+  ================================================== -->
+  <div class="cygnus-nav" bs-affix>
+    <div class="container">
+      <div class="inner">
+        <ul class="list-inline">
+          <!-- space between inline elements removed using the comments b/t li elements -->
+          <li><span><a href="/about/">About</a></span></li><!--
+          --><li><span><a href="/services/">Services</a></span></li><!--
+          --><li><span><a href="/contact/">Contact</a></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Our Firm
+  ================================================== -->
+  <div class="masthead">
+    <div class="container">
+      <h1>Our Firm</h1>
+      <p >We are a full-service Accounting and Bookkeeping firm serving small to medium sized business throughout the Bay Area. Our company is dedicated to providing our clients with professional, personalized services and guidance in a wide range of accounting needs. We listen to your needs and goals and develop a plan to execute them to ensure financial viability of your business. Whether you are a current or prospective client, rest assured that you will receive our dedication to all the business principles to make you successful.</p>
+      <a class="btn btn-primary btn-lg" role="button">View our Services</a>
+    </div>
+  </div>
 
   <br><br> <!-- remove later -->
 
   <!-- Founders
   ================================================== -->
-  <div class="founders">
+  <div class="founders container">
     <h1>Meet the Team</h1>
     <!-- Three columns of text below the carousel -->
     <div class="row">

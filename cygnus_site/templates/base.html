@@ -27,25 +27,36 @@
   </head>
 
   <body>
+    <!--
     <div id="indicator">
       <p class="visible-xs">DEBUG: xs - phones</p>
       <p class="visible-sm">DEBUG: sm - small screens</p>
       <p class="visible-md">DEBUG: md - tablets</p>
       <p class="visible-lg">DEBUG: lg - large screens</p>
     </div>
-
+-->
       {% block content %}{% endblock content %}
 
       <!-- FOOTER -->
       <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>
-          &copy; 2014 Cygnus Management, LLC 
-          &middot; 
-          <a href="#">Privacy</a> 
-          &middot; 
-          <a href="#">Terms</a>
-        </p>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-6" id="footer-items">
+              <ul class="list-inline text-center pull-left">
+                <li>&copy; 2014 Cygnus Management, LLC</li>
+                <li>Privacy</li>
+                <li>Terms</li>
+              </ul>
+            </div><!-- ./col-xs-6 -->
+            <div class="col-xs-6" id="footer-social">
+              <ul class="list-inline text-center pull-right">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+              </ul>
+            </div><!-- ./col-xs-6 -->
+          </div><!-- ./row -->
+        </div><!-- ./container -->
       </footer>
       
 
@@ -58,6 +69,7 @@
     <script src="{{ STATIC_URL }}js/lib/angular-sanitize.min.js"></script>
     <script src="{{ STATIC_URL }}js/lib/angular-strap.min.js"></script>
     <script src="{{ STATIC_URL }}js/lib/angular-strap.tpl.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
  
 
     <script src="{{ STATIC_URL }}js/app.js"></script>
