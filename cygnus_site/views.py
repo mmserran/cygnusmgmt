@@ -9,27 +9,34 @@ from django.template import RequestContext, loader
 def index(request):
   template = loader.get_template('cygnus_site/index.html')
   context = RequestContext(request, {
-#    'path' : request.path.split('/')[-2],
+    'path' : request.path.split('/')[1],
   })
   return HttpResponse(template.render(context))
 
 def about(request):
   template = loader.get_template('cygnus_site/about.html')
   context = RequestContext(request, {
-#    'path' : request.path.split('/')[-2],
+    'path' : request.path.split('/')[1],
   })
   return HttpResponse(template.render(context))
 
 def services(request):
   template = loader.get_template('cygnus_site/services.html')
   context = RequestContext(request, {
-#    'path' : request.path.split('/')[-2],
+    'path' : request.path.split('/')[1],
+  })
+  return HttpResponse(template.render(context))
+
+def pricing(request):
+  template = loader.get_template('cygnus_site/pricing.html')
+  context = RequestContext(request, {
+    'path' : request.path.split('/')[1],
   })
   return HttpResponse(template.render(context))
 
 def contact(request):
   template = loader.get_template('cygnus_site/contact.html')
   context = RequestContext(request, {
-#    'path' : request.path.split('/')[-2],
+    'path' : request.path.split('/')[1],
   })
   return HttpResponse(template.render(context))

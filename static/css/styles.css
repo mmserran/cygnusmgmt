@@ -3,76 +3,129 @@
 /* Background and typography styles */
 /* Transitions */
 /* Other */
+ /* TABLE OF CONTENTS
+-------------------------------------------------- */
+/*    SASS variables
+      GLOBAL STYLES
+      NAVBAR STYLES
+      FOOTER STYLES
+      LANDING PAGE STYLES
+      CUSTOMER FEEDBACK STYLES
+      SERVICES PAGE STYLES
+      ABOUT PAGE STYLES
+      RESPONSIVE STYLES
+*/
+/* SASS variables */
 /* GLOBAL STYLES
 -------------------------------------------------- */
-#indicator {
-  position: fixed;
-  left: 0;
-  top: 98%;
-  width: 100%;
-  z-index: 9000; }
+@font-face {
+  font-family: droid_sans_bold;
+  src: url("../fonts/Droid-Sans/DroidSans-Bold.ttf") format("truetype"); }
+@font-face {
+  font-family: droid_sans;
+  src: url("../fonts/Droid-Sans/DroidSans.ttf") format("truetype"); }
+.navbar-inverse .navbar-toggle:hover {
+  background-color: white; }
+  .navbar-inverse .navbar-toggle:hover .icon-bar {
+    background-color: #f39c12;
+    border: 1px solid #f39c12; }
+
+.btn-primary {
+  background-color: #f39c12; }
 
 html {
-  overflow-x: hidden; }
+  overflow-y: scroll; }
 
-.imageslide .slider-content {
-  position: absolute;
+body {
+  font-family: droid_sans, Helvetica, sans-serif;
+  /* overflow-y: scroll; IF in body, IE7 sees a double scrollbar.. all the way */ }
+
+.jumbotron {
   width: 100%;
-  height: 400px; }
-
-.slider-content.ng-enter, .slider-content.ng-leave {
-  -webkit-transition: 1000ms cubic-bezier(0.165, 0.84, 0.44, 1) all;
-  -moz-transition: 1000ms cubic-bezier(0.165, 0.84, 0.44, 1) all;
-  -ms-transition: 1000ms cubic-bezier(0.165, 0.84, 0.44, 1) all;
-  -o-transition: 1000ms cubic-bezier(0.165, 0.84, 0.44, 1) all;
-  transition: 1000ms cubic-bezier(0.165, 0.84, 0.44, 1) all; }
-
-.slider-content.ng-enter {
-  left: 100%; }
-
-.slider-content.ng-enter.ng-enter-active {
-  left: 0; }
-
-.slider-content.ng-leave {
-  left: 0; }
-
-.slider-content.ng-leave.ng-leave-active {
-  left: -100%; }
-
-.bubble {
-  position: relative;
-  padding: 10px;
-  margin: 20px;
-  width: auto;
-  height: auto;
-  color: black;
-  border: 1px solid white;
-  background: #FFFFFF;
-  /* round edges */
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  /* box shadow */
-  -webkit-box-shadow: 0px 6px 30px 0px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 0px 6px 30px 0px rgba(50, 50, 50, 0.75);
-  box-shadow: 0px 6px 30px 0px rgba(50, 50, 50, 0.75); }
-
-/* bubble triangle */
-#customer1:after {
-  content: '';
-  position: absolute;
-  border-style: solid;
-  border-width: 7px 22px 7px 0;
-  border-color: transparent #FFFFFF;
-  display: block;
-  width: 0;
-  z-index: 1;
-  left: -22px;
-  top: 30px; }
+  padding: 0;
+  margin-bottom: 0;
+  color: white;
+  background: #2980b9;
+  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); }
+  .jumbotron h1 {
+    text-shadow: 2px 2px 12px #323232; }
 
 .aside-backdrop {
-  z-index: 0; }
+  z-index: 26; }
 
+/* NAVBAR STYLES
+-------------------------------------------------- */
+.navbar {
+  width: 100%;
+  background-color: white;
+  border-bottom: 6px solid #2980b9;
+  -webkit-box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.8);
+  -moz-box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.8);
+  box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.8);
+  /* three/triple bar mobile menu icon */
+  /*-- navbar link styles --*/
+  /*-- service caret styles --*/ }
+  .navbar .navbar-toggle,
+  .navbar .navbar-toggle:visited {
+    border: 1px solid #2c3e50; }
+    .navbar .navbar-toggle .icon-bar,
+    .navbar .navbar-toggle:visited .icon-bar {
+      background-color: #2c3e50; }
+  .navbar .navbar-toggle:hover,
+  .navbar .navbar-toggle:active,
+  .navbar .navbar-toggle:focus {
+    border: 1px solid #2c3e50;
+    background-color: white; }
+    .navbar .navbar-toggle:hover .icon-bar,
+    .navbar .navbar-toggle:active .icon-bar,
+    .navbar .navbar-toggle:focus .icon-bar {
+      background-color: #f39c12; }
+  .navbar .navbar-brand,
+  .navbar .navbar-nav > li > a {
+    /* brand name and normal links have font color $footer-dark */
+    color: #2c3e50;
+    font-family: droid_sans_bold; }
+  .navbar #navServices a {
+    /* services and its caret should be right next to each other */
+    padding-right: 0; }
+  .navbar .navbar-brand:hover,
+  .navbar .navbar-nav > li > a:hover,
+  .navbar #navServicesCaret:focus,
+  .navbar .navbar-brand:focus,
+  .navbar .navbar-nav > li > a:focus {
+    /* when a link is hovered on or is active, highlight with $secondary-color */
+    /*font*/
+    color: #f39c12; }
+  .navbar .navbar-nav > .active > a,
+  .navbar .navbar-nav > .active > a:hover,
+  .navbar .navbar-nav > .active > a:focus {
+    /* when active, overwrite bootstrap default .active styles */
+    background-color: #2c3e50; }
+  .navbar .dropdown-menu {
+    margin-top: -15px;
+    margin-left: -108px;
+    text-align: center; }
+  .navbar .navServicesCaret {
+    padding: 15px 10px;
+    padding-bottom: 16px;
+    background-color: white; }
+    .navbar .navServicesCaret span {
+      color: #2c3e50; }
+  .navbar .navServicesCaret:hover,
+  .navbar .navServicesCaret:focus {
+    /* on hover, highlight with $secondary-color */ }
+    .navbar .navServicesCaret:hover span,
+    .navbar .navServicesCaret:focus span {
+      color: #f39c12; }
+  .navbar .activeCaret {
+    /* invert caret when active */
+    background-color: #2c3e50; }
+    .navbar .activeCaret span {
+      color: white; }
+
+/* FOOTER STYLES
+-------------------------------------------------- */
 footer {
   background: #2c3e50;
   padding: 10px 0;
@@ -80,15 +133,18 @@ footer {
   footer ul {
     margin-bottom: 0;
     /* override bootstrap css */ }
-  footer #footer-items li {
-    margin: 20px 10px; }
+  footer #footer-items span {
+    padding: 14px; }
+  footer #footer-items .list-inline {
+    line-height: 60px;
+    padding-bottom: 10px; }
   footer #footer-social a {
     line-height: 48px;
     background: #81949f;
     opacity: .4;
     color: #2c3e50;
     font-size: 26px;
-    margin: 5px 10px;
+    margin: 10px 10px;
     /* create circles */
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
@@ -106,7 +162,8 @@ footer {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(44, 62, 80, 0.6);
     /* bottom */ }
-  footer #footer-social a:hover {
+  footer #footer-social a:hover,
+  footer #footer-social a:focus {
     opacity: 1;
     /* animate to full opacity */
     -webkit-transition: all 0.2s ease-in-out;
@@ -114,54 +171,56 @@ footer {
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out; }
 
-/* NAVBAR STYLES
--------------------------------------------------- */
-/* dividers
-*/
-.navbar {
-  width: 100%;
-  background-color: white;
-  /*  border-top: 6px solid #2980b9; */
-  border: 0;
-  -webkit-box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.8);
-  -moz-box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.8);
-  box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.8); }
-  .navbar .navbar-toggle {
-    border: 1px solid #bdc3c7; }
-    .navbar .navbar-toggle .icon-bar {
-      background-color: #bdc3c7; }
-
-.cygnus-nav {
-  width: 100%;
-  z-index: 9000;
-  border-bottom: 1px solid #284F0B;
-  background: -webkit-gradient(linear, center top, center bottom, from(#429a00), to(#2c6700)); }
-  .cygnus-nav .list-inline {
-    border-left: 1px solid #2C550E;
-    margin-bottom: 0; }
-    .cygnus-nav .list-inline li {
-      border-left: 1px solid #568831;
-      border-right: 1px solid #2C550E;
-      padding: 0 10px; }
-      .cygnus-nav .list-inline li a {
-        font-size: 24px;
-        color: white; }
-
 /* LANDING PAGE STYLES
 -------------------------------------------------- */
-.jumbotron {
-  width: 100%;
-  padding: 0;
-  margin-bottom: 0;
-  margin-top: 40px;
-  color: white;
-  background: #2980b9;
-  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); }
+#hero {
+  border-bottom: 6px solid #2980b9;
+  padding-top: 60px;
+  /* Learn More Btn */ }
+  #hero p {
+    text-shadow: 2px 2px 12px #323232; }
+  #hero .btn-warning {
+    text-shadow: none;
+    /* box shadow */
+    margin-right: 20%;
+    margin-bottom: 20px;
+    background-color: #f39c12; }
+
+.imageslide .slider-content {
+  position: absolute;
+  z-index: 6;
+  white-space: nowrap;
+  padding-left: 20%; }
+  .imageslide .slider-content p {
+    font-size: 36px; }
+
+/* Animation */
+.slider-content.ng-enter, .slider-content.ng-leave {
+  -webkit-transition: 2000ms cubic-bezier(0.165, 0.84, 0.44, 1) all;
+  -moz-transition: 2000ms cubic-bezier(0.165, 0.84, 0.44, 1) all;
+  -ms-transition: 2000ms cubic-bezier(0.165, 0.84, 0.44, 1) all;
+  -o-transition: 2000ms cubic-bezier(0.165, 0.84, 0.44, 1) all;
+  transition: 2000ms cubic-bezier(0.165, 0.84, 0.44, 1) all; }
+
+.slider-content.ng-enter {
+  opacity: 0;
+  left: 50%; }
+
+.slider-content.ng-enter.ng-enter-active,
+.slider-content.ng-leave {
+  opacity: .9;
+  left: 0; }
+
+.slider-content.ng-leave.ng-leave-active {
+  opacity: -10;
+  left: -90%; }
 
 .highlights {
   margin-top: 40px;
   /* margin between green line and triple circles */ }
+
+.img-circle {
+  /*  border: 6px solid $primary-color; */ }
 
 /* Center align the text within the three columns below the carousel */
 .highlights .col-md-4,
@@ -180,8 +239,119 @@ footer {
   text-align: center;
   margin-bottom: 40px; }
 
+/* featurettes */
+.featurette span {
+  padding-top: 36px;
+  border-top: 5px solid #2980b9; }
+
+.featurette:hover span {
+  border-top: 6px solid #f39c12; }
+
 .featurette-image {
   margin: 0 auto; }
+
+/* CUSTOMER FEEDBACK STYLES
+-------------------------------------------------- */
+#feedback {
+  /* Customer Feedback title */
+  /* orange border highlights */
+  /* chat bubble title icon */
+  /* quote author */
+  /* quote body text */ }
+  #feedback h1 {
+    margin-bottom: 0.8em; }
+  #feedback #borderHighlight {
+    border-radius: 10px;
+    border-top: 18px solid #f39c12;
+    border-bottom: 18px solid #f39c12;
+    margin: -2.25em 0;
+    z-index: 1;
+    position: relative; }
+  #feedback h1 i {
+    font-size: 80px;
+    margin-left: 40px; }
+  #feedback #feedbackDivider {
+    position: relative;
+    padding: 0;
+    border: none;
+    border-top: 6px solid white;
+    color: #333;
+    text-align: center;
+    /* box shadow */
+    -webkit-box-shadow: 0px 1px 6px 0px rgba(50, 50, 50, 0.8);
+    -moz-box-shadow: 0px 1px 6px 0px rgba(50, 50, 50, 0.8);
+    box-shadow: 0px 1px 6px 0px rgba(50, 50, 50, 0.8); }
+  #feedback h4 {
+    margin: 6px 20px;
+    color: #f39c12;
+    padding-bottom: 6px;
+    font-size: 22px;
+    text-shadow: 1px 1px 2px rgba(50, 50, 50, 0.1);
+    font-family: droid_sans_bold; }
+  #feedback p {
+    margin: 6px 20px; }
+
+/* ENDfeedback */
+/* move these containers to the right side */
+#customer2,
+#customer4 {
+  float: right; }
+
+/* chat bubble styles */
+.bubble {
+  position: relative;
+  padding: 10px;
+  margin: 20px;
+  width: 60%;
+  height: auto;
+  color: black;
+  border: 1px solid white;
+  background: white;
+  /* round edges */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  /* box shadow */
+  -webkit-box-shadow: 0px 6px 30px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 6px 30px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 6px 30px 0px rgba(50, 50, 50, 0.75); }
+
+/* bubble triangle */
+.bubble:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  display: block;
+  width: 0; }
+
+/* bubble traingle fine tuning */
+#customer1:after,
+#customer3:after {
+  left: -22px;
+  top: 30px;
+  border-width: 9px 22px 9px 0;
+  border-color: transparent white; }
+
+#customer2:after,
+#customer4:after {
+  right: -15px;
+  top: 28px;
+  border-width: 13px 0 13px 26px;
+  border-color: transparent white; }
+
+/* SERVICES PAGE STYLES
+-------------------------------------------------- */
+/* bootstrap - xs */
+@media (max-width: 768px) {
+  .services h1 {
+    font-size: 24px; }
+  .services h6 {
+    font-size: 12px; }
+  .services ul li p {
+    font-size: 12px; } }
+#serviceNav {
+  position: fixed;
+  top: 100px; }
 
 /* ABOUT PAGE STYLES
 -------------------------------------------------- */
@@ -192,38 +362,78 @@ footer {
   margin: 40px 0;
   text-align: center; }
 
-.masthead {
+.ourFirm {
   background-image: url("../img/The_two_bridges_insta.jpg");
   background-size: 100% auto;
   /* width and height, can be %, px or whatever. */
   height: 480px;
   color: white;
   padding: 10% 0; }
-  .masthead p, .masthead h1 {
-    text-shadow: 2px 2px #000; }
-  .masthead p {
+  .ourFirm p, .ourFirm h1 {
+    text-shadow: 2px 2px #323232; }
+  .ourFirm p {
     font-size: 20px; }
 
 /* RESPONSIVE STYLES
 -------------------------------------------------- */
-/* xs, sm */
 /* phones; bootstrap - xs */
 @media (max-width: 768px) {
+  /* global styles */
+  #footer-social .list-inline {
+    padding-bottom: 10px; }
+
+  /*--- landing page ---*/
+  /* size down the quote bubble text */
+  #hero {
+    /* Learn More Btn */ }
+    #hero h1 {
+      font-size: 30px; }
+    #hero .btn-warning {
+      margin-right: 6%; }
+
+  #feedback h1 span {
+    /* title: Customer Feedback@xs */
+    font-size: 36px; }
+    #feedback h1 span i {
+      /* icon: Chat Bubble@xs */
+      margin: 0 60px;
+      font-size: 100px; }
+  #feedback p {
+    /* quote text @xs */
+    font-size: 14px; }
+  #feedback h4 {
+    /* quote author @xs */
+    font-size: 18px; }
+
+  /* size down the slider text */
+  .imageslide .slider-content p {
+    font-size: 24px; }
+
   .featurette {
     padding: 0 10px; }
-
-  #indicator {
-    background: #FDC68A;
-    /* orange */ }
 
   .highlights .col-md-4 p,
   .founders .col-md-4 p {
     margin: 0 6%; }
 
-  .masthead {
+  /*--- about page ---*/
+  .ourFirm {
     background-size: auto 100%; }
-    .masthead p {
+    .ourFirm p {
       font-size: 16px; } }
+/* phones; bootstrap - xs to sm */
+@media (min-width: 500px) and (max-width: 768px) {
+  #indicator {
+    background: #FDC68A;
+    /* orange */ }
+
+  #feedback h1 span {
+    /* title: Customer Feedback@xs */
+    font-size: 52px; }
+    #feedback h1 span i {
+      /* icon: Chat Bubble@xs */
+      margin: 0 60px;
+      font-size: 100px; } }
 /* phablets; bootstrap - sm */
 @media (min-width: 768px) and (max-width: 992px) {
   #indicator {
@@ -233,13 +443,7 @@ footer {
   .highlights .col-md-4 p,
   .founders .col-md-4 p {
     margin: 0 12%; } }
-/* tablets; bootstrap - md */
-@media (min-width: 992px) and (max-width: 1200px) {
-  #indicator {
-    background: #6ECFF6;
-    /* cyan */ } }
-/* large screens; bootstrap - lg */
-@media (min-width: 1200px) {
-  #indicator {
-    background: #A187BE;
-    /* purple */ } }
+/* when screen width larger than 450px, right align social */
+@media (min-width: 450px) {
+  footer #footer-social ul {
+    float: right !important; } }

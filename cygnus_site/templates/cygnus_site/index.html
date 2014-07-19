@@ -2,12 +2,8 @@
 
 {% block content %} <!-- This block content is placed inside of base.html body -->
 <div ng-app="CygnusApp" ng-controller="CygnusCtrl">
-  <!-- aside css -->
-  <link href="{{ STATIC_URL }}css/lib/bootstrap-additions.min.css" rel="stylesheet">
-  <!-- custom style loaded after lib so that we override it -->
-  <link href="{{ STATIC_URL }}css/styles.css" rel="stylesheet">
-
-  <!-- Navbar (sticks to top)
+  
+  <!-- Navbar, fixed
   ================================================== -->
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -18,14 +14,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Project name</a>
+        <a class="navbar-brand" href="/">CygnusMgmt</a>
       </div>
       <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="about">About</a></li>
-          <li><a href="services">Services</a></li>
-          <li><a href="pricing">Pricing</a></li>
-          <li><a href="contact">Contact</a></li>
+        <ul ng-controller="NavbarCtrl" class="nav navbar-nav">
+          <li ng-class="isActive('about') ? 'active':'' "><a href="/about">About</a></li>
+
+          <li ng-class="isActive('services') ? 'active':'' " id="navServices">
+            <a href="/services">Services</a>
+          </li>
+
+          <li ng-class="isActive('services') ? 'activeCaret':'' " class="navServicesCaret" data-html="true" data-animation="am-slide-top" bs-dropdown="dropdown">
+            <span class="caret"></span>
+          </li>
+
+          <li ng-class="isActive('pricing') ? 'active':'' "><a href="/pricing">Pricing</a></li>
+          <li ng-class="isActive('contact') ? 'active':'' "><a href="/contact">Contact</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -33,28 +37,42 @@
 
   <!-- Top Jumbotron (height is initialized to available screen height)
   ================================================== -->
-  <div class="jumbotron">
+  <div id="hero" class="jumbotron">
     <div class="container">
       <h1>Cygnus Management</h1>
-      <p>We are a full-service accounting firm serving small to medium sized businesses throughout the Bay Area. </p>
+      <p>We are a full-service accounting firm serving small to medium sized businesses throughout the Bay Area. Our services include: </p>
     </div>
 
-      <div ng-controller="slideShowController" class="imageslide" ng-switch='slideshow' ng-animate="'animate'">
-        <div class="slider-content " ng-switch-when="1">
-          <p class="container">Slider's are amazing1!</p>
-        </div>  
-        <div class="slider-content" ng-switch-when="2">
-          <p class="container">Slider's are amazing2!</p>
-        </div>
-        <div class="slider-content" ng-switch-when="3">
-          <p class="container">Slider's are amazing3!</p>
-        </div>  
-        <div class="slider-content" ng-switch-when="4">
-          <p class="container">Slider's are amazing4!</p>
-        </div>  
+    <br />
+
+    <div class="imageslide" ng-switch='slideshow' ng-animate="'animate'">
+      <div class="slider-content" ng-switch-when="1">
+        <p>Accounts Payable</p>
+      </div>  
+      <div class="slider-content" ng-switch-when="2">
+        <p>Accounts Receivable</p>
       </div>
-<br><br><br>  
-<!--      <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p> -->
+      <div class="slider-content" ng-switch-when="3">
+        <p>Payroll</p>
+      </div>  
+      <div class="slider-content" ng-switch-when="4">
+        <p>General Ledger</p>
+      </div>  
+      <div class="slider-content" ng-switch-when="5">
+        <p>Tax Preparation</p>
+      </div>
+      <div class="slider-content" ng-switch-when="6">
+        <p>Other Services</p>
+      </div>  
+    </div><!-- imageslide -->
+
+    <br />
+    <br />
+    <br />
+
+    <div class="container">
+      <p><a class="btn btn-warning btn-lg pull-right" role="button" href="/services">Learn more &raquo;</a></p>
+    </div>
 
   </div> <!-- ./jumbotron -->
 
@@ -91,8 +109,8 @@
     <!-- Professionalism -->
     <div class="row featurette">
       <div class="col-sm-7">
-        <h2 class="featurette-heading">Professionalism.</h2>
-        <p class="lead">Our firm is one of the leading firms in the area. By combining our expertise, experience and the energy of our staff, each client receives close personal and professional attention.
+        <h2 class="featurette-heading"><span>Professionalism</span></h2>
+        <p>Our firm is one of the leading firms in the area. By combining our expertise, experience and the energy of our staff, each client receives close personal and professional attention.
 
 Our high standards, service and specialized staff spell the difference between our outstanding performance, and other firms. We make sure that every client is served by the expertise of our whole firm.</p>
       </div>
@@ -107,36 +125,36 @@ Our high standards, service and specialized staff spell the difference between o
     <div class="row featurette">
       <div class="hidden-xs col-sm-5">
         <img class="featurette-image img-responsive" src="http://placehold.it/500x500" alt="Generic placeholder image">
-      </div>
+      </div><!-- ./col-sm-5 -->
       <div class="col-sm-7">
-        <h2 class="featurette-heading">Quality</h2>
-        <p class="lead">An accounting firm is known for the quality of its service. Our firm's reputation reflects the high standards we demand of ourselves.
+        <h2 class="featurette-heading"><span>Quality</span></h2>
+        <p>An accounting firm is known for the quality of its service. Our firm's reputation reflects the high standards we demand of ourselves.
 
 Our primary goal as a trusted advisor is to be available and to provide insightful advice to enable our clients to make informed financial decisions. We do not accept anything less from ourselves and this is what we deliver to you.
 
 We feel it is extremely important to continually professionally educate ourselves to improve our technical expertise, financial knowledge and service to our clients. Our high service quality and "raving fan" clients are the result of our commitment to excellence. We will answer all of your questions, as they impact both your tax and financial situations.</p>
-      </div>
+      </div><!-- ./col-sm-7 -->
       <div class="visible-xs col-sm-5">
         <img class="featurette-image img-responsive" src="http://placehold.it/500x500" alt="Generic placeholder image">
-      </div>
-    </div>
+      </div><!-- ./visible-xs -->
+    </div><!-- ./row quality -->
 
     <hr class="featurette-divider">
 
     <!-- Responsiveness -->
     <div class="row featurette">
       <div class="col-sm-7">
-        <h2 class="featurette-heading">Responsiveness</h2>
-        <p class="lead">Our firm is responsive. Companies who choose our firm rely on competent advice and fast, accurate personnel. We provide total financial services to individuals, large and small businesses and other agencies.
+        <h2 class="featurette-heading"><span>Responsiveness</h2>
+        <p>Our firm is responsive. Companies who choose our firm rely on competent advice and fast, accurate personnel. We provide total financial services to individuals, large and small businesses and other agencies.
 
 To see a listing of our services, please take a moment and look at our services page. Because we get new business from the people who know us best, client referrals have fueled our growth in the recent years.
 
 Through hard work, we have earned the respect of the business and financial communities. This respect illustrates our diverse talents, dedication and ability to respond quickly.</p>
-      </div>
+      </div><!-- ./col-sm-7 -->
       <div class="col-sm-5">
         <img class="featurette-image img-responsive" src="http://placehold.it/500x500" alt="Generic placeholder image">
-      </div>
-    </div>
+      </div><!-- ./col-sm-5 -->
+    </div><!-- ./row responsiveness -->
 
     <hr class="featurette-divider">
 
@@ -144,15 +162,90 @@ Through hard work, we have earned the respect of the business and financial comm
 
   <!-- Top Jumbotron (height is initialized to available screen height)
   ================================================== -->
-  <div class="jumbotron">
-    <div class="container">
-      <h1>Customer feedback</h1>
-      <div id="customer1" class="bubble">
-      <p>"I like the fact that I can talk to my same  Representative each and every time." - J. Esperitu</p>
-    </div>
-    </div>
-  </div> <!-- ./jumbotron -->
+  <div id="feedback" class="jumbotron">
 
+    <hr id="feedbackDivider" />
+
+    <div class="container">
+      <div id="borderHighlight">
+        <h1 class="text-center"><span>Customer feedback<i class="fa fa-weixin"></i></span></h1>
+      </div>
+    </div>
+
+    <hr id="feedbackDivider" />
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="customer1" class="bubble">
+            <div class="row">
+              <div class="col-xs-12">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <p>"I like the fact that I can talk to my same  Representative each and every time."</p>
+                <h4 class="pull-left">J. Esperitu</h4>
+              </div>
+            </div>
+          </div><!-- ./customer1 -->
+        </div><!-- ./col -->
+      </div><!-- ./row -->
+<br />
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="customer2" class="bubble">
+            <div class="row">
+              <div class="col-xs-12">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <p>"I don’t have to re-explain everything because they know my account inside and out. Their attention to detail is second to none."</p>
+                <h4 class="pull-right">John Utleg</h4>
+              </div>
+            </div>
+          </div><!-- ./customer2 -->
+        </div><!-- ./col -->
+      </div><!-- ./row -->
+<br />
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="customer3" class="bubble">
+            <div class="row">
+              <div class="col-xs-12">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <p>"When I need their assistance, their promptness is a priority and can always be depended upon."</p>
+                <h4 class="pull-left">Susan Wong</h4>
+              </div>
+            </div>
+          </div><!-- ./customer3 -->
+        </div><!-- ./col -->
+      </div><!-- ./row -->
+<br />
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="customer4" class="bubble">
+            <div class="row">
+              <div class="col-xs-12">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <p>"The best thing is that I know they really care."</p>
+                <h4 class="pull-right">Alex C.</h4>
+              </div>
+            </div>
+          </div><!-- ./customer4 -->
+        </div><!-- ./col -->
+      </div><!-- ./row -->
+<br />
+<br />
+    </div><!-- ./container -->
+  </div><!-- ./jumbotron -->
 
 
 </div>

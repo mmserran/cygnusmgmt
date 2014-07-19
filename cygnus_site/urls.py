@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     url(r'^$', views.index),
     url(r'about', views.about),
     url(r'services', views.services),
+    url(r'pricing', views.pricing),
     url(r'contact', views.contact),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -17,26 +17,52 @@ CygnusApp
 ;
 
 
-function slideShowController($scope, $timeout) {
- var slidesInSlideshow = 4;
- var slidesTimeIntervalInMs = 3000; 
-  
-  $scope.slideshow = 1;
-  var slideTimer =
-    $timeout(function interval() {
-      $scope.slideshow = ($scope.slideshow % slidesInSlideshow) + 1;
-      slideTimer = $timeout(interval, slidesTimeIntervalInMs);
-    }, slidesTimeIntervalInMs);
-}
-
 /* Cygnus website main controller */
 CygnusApp
   .controller('CygnusCtrl', ['$scope', '$window', '$timeout', function ($scope, $window, $timeout) {
 
+    var slidesInSlideshow = 6;
+    var slidesTimeIntervalInMs = 3200; 
+     
+   $scope.slideshow = 1;
+    var slideTimer =
+      $timeout(function interval() {
+        $scope.slideshow = ($scope.slideshow % slidesInSlideshow) + 1;
+        slideTimer = $timeout(interval, slidesTimeIntervalInMs);
+      }, slidesTimeIntervalInMs);
+
+    $scope.dropdown = [
+      {
+        "text": "Accounts Payable",
+        "href": "#AccountsPayable"
+      },
+      {
+        "text": "Accounts Receivable",
+        "href": "#AccountsReceivable"
+      },
+      {
+        "text": "General Ledger",
+        "href": "#GeneralLedger"
+      },
+      {
+        "text": "Payroll",
+        "href": "#Payroll"
+      },
+      {
+        "text": "Tax Preparation",
+        "href": "#TaxPreparation"
+      },
+      {
+        "text": "Other Services",
+        "href": "#OtherServices"
+      },
+    ];
+
     $scope.aside = {
-      "title": "Title",
-      "content": "Hello Aside<br />This is a multiline message!"
+      "title": "Sitemap",
+      "content": "<ul class='nav navbar-nav'><li><a href='about'>About</a></li><li class=''><a href='services' class='dropdown-toggle' data-toggle='dropdown'>Services <span class='caret'></span></a></li><li><a href='pricing'>Pricing</a></li><li><a href='contact'>Contact</a></li></ul>"
     };
+
     $scope.tooltip = {title: 'Hello Tooltip<br />This is a multiline message!', checked: false};
 
     $scope.founders = [
@@ -47,7 +73,8 @@ CygnusApp
       { name:"Jerry Pamorada", title:"Product Development", quote:{title: 'Hello Tooltip<br />This is an example quote for Jerry', checked: false},
         desc:"A mechanical engineer by trade. Jerry earned his engineering degree at Don Bosco University, Philippines. He has 18 years of sales and marketing experience." },
 
-    ]
+    ];
+
     $scope.height = $window.innerHeight - 34 - 1;
 
     $scope.team = [
@@ -61,7 +88,15 @@ CygnusApp
         desc:"" },
       { name:"Future", title:"", quote:{title: 'Verification  Operator', checked: false},
         desc:"" },
+    ];
 
+    $scope.services = [
+      "Accounts Payable",
+      "Accounts Receivable",
+      "Payroll",
+      "General Ledger",
+      "Tax Preparation",
+      "Software Specialization",
     ]
 
   }])

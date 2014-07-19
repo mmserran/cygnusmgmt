@@ -1,10 +1,359 @@
 {% extends "base.html" %}{% load staticfiles %}
 
 {% block content %} <!-- This block content is placed inside of base.html body -->
-<div class="container" ng-app="LolCompApp" ng-controller="LolCompCtrl">
-  <link href="{{ STATIC_URL }}css/styles.css" rel="stylesheet">
- 
-duu hulo
+<div ng-app="CygnusApp" ng-controller="CygnusCtrl">
+  
+  <!-- Navbar, fixed
+  ================================================== -->
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-html="true" data-placement="left" data-animation="am-slide-left" bs-aside="aside">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">CygnusMgmt</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul ng-controller="NavbarCtrl" class="nav navbar-nav">
+          <li ng-class="isActive('about') ? 'active':'' "><a href="/about">About</a></li>
+
+          <li ng-class="isActive('services') ? 'active':'' " id="navServices">
+            <a href="/services">Services</a>
+          </li>
+
+          <li ng-class="isActive('services') ? 'activeCaret':'' " class="navServicesCaret" data-html="true" data-animation="am-slide-top" bs-dropdown="dropdown">
+            <span class="caret"></span>
+          </li>
+
+          <li ng-class="isActive('pricing') ? 'active':'' "><a href="/pricing">Pricing</a></li>
+          <li ng-class="isActive('contact') ? 'active':'' "><a href="/contact">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+
+
+<br><br><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3">
+
+        <ul id="serviceNav" class="nav">
+          <li data-target="#modals" bs-scrollspy>
+            <a href="#modals">Modal</a>
+            <ul class="nav">
+              <li data-target="#GeneralLedger" bs-scrollspy><a href="#GeneralLedger">General Ledger</a></li>
+              <li data-target="services#/other-services" bs-scrollspy><a href="/services/#other-services">Other Services</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div><!-- ./scrollspy column -->
+      <div class="col-xs-9">
+        <ul class="services list-unstyled">
+
+          <li id="AccountsPayable" class="pull-left">
+            <h1>Accounts Payable</h1>
+            <h6 class="text-muted">
+Accounts Payable is a complex process. We understand the importance of having a strong systems of control in place to ensure timely and accurate processing. At Cygnus, we do the following:</h6>
+            <ul class="serviceBulletList">
+
+              <li>
+                <p>Process invoice payment processing for day to day operations.</p>
+              </li>
+              <li>
+                <p>Assign the distribution of payments to vendors.</p>
+              </li>
+              <li>
+                <p>Develop, update, and maintain Vendor list.</p>
+              </li>
+              <li>
+                <p>Prepare and process year end&nbsp; Form 1099</p>
+              </li>
+              <li>
+                <p>Prepare, analyze, and create report for current and aging payables.</p>
+              </li>
+              <li>
+                <p>Update and verify payments to vendor prior payment by matching POs and packing slips.</p>
+              </li>
+              <li>
+                <p>Will assist the payables team in resolving account discrepancies by evaluating and approving investigations and resolving special cases until resolved.</p>
+              </li>
+              <li>
+                <p>Provide monthly bank and credit card statements reconciliation.</p>
+              </li>
+              <li>
+                <p>Review accounts payable batches for accuracy, proper approval and account coding following Company standard practices and generally accepted accounting practices</p>
+              </li>
+              <li>
+                <p>Meets accounts payable operational standards by implementing productivity, quality, and customer service standards; resolving problems; identifying system improvements.</p>
+              </li>
+              <li>
+                <p>Continually evaluate processes and procedures, making recommendations to management for process improvement.</p>
+              </li>
+              <li>
+                <p>Review insurance company billings, and other invoices as necessary for accuracy and turn over to A/P for approval and payment.</p>
+              </li>
+              <li>
+                <p>Create monthly reports for outstanding payables.</p>
+              </li>
+              <li>
+                <p>Keep a list of current paid items to verify real time bank cash account to avoid overdrafts.</p>
+              </li>
+              <li>
+                <p>In charge of filing CA Use Tax, Annual Corporate Tax, Unsecured Property Tax</p>
+              </li>
+              <li>
+                <p>Develop, maintain and ensure ongoing compliance with SOX 404 internal control documentation and testing. (available service)</p>
+              </li>
+              <li>
+                <p>Will develop, implement and educate employees and management on new and/or updated policies and procedures. (available service)</p>
+              </li>
+              <li>
+                <p>Coordinate monthly/quarterly/yearly accounts payable close process, including accruals, perform reconciliations and analysis. (available service)</p>
+              </li>
+
+            </ul><!-- Service Bullet List -->
+          </li><!-- Accounts Payable -->
+
+          <li id="AccountsReceivable" class="pull-left">
+            <h1>Accounts Receivable</h1>
+            <h6 class="text-muted">Cynus believes in the saying "it takes money to make money". Whether your business is large or small, you need to have policies and practices in place to insure accounts are managed in a consistent manner. We do these in your behalf as part of our service offering:</h6>
+            <ul class="serviceBulletList">
+
+              <li>
+                <p>Set up client accounts where necessary i.e. names, addresses, phone/fax numbers, account designations.</p>
+              </li>
+              <li>
+                <p>Prepare bills from contracts or purchases in cash or credit.</p>
+              </li>
+              <li>
+                <p>Record and post daily sales and receipts. Apply cash receipts to proper accounts.</p>
+              </li>
+              <li>
+                <p>Make sure payments are posted to correct accounts.</p>
+              </li>
+              <li>
+                <p>Reconcile to General Ledger for further control.</p>
+              </li>
+              <li>
+                <p>Perform re-class entries where needed.</p>
+              </li>
+              <li>
+                <p>Work closely with Sales department on any issue where needed.</p>
+              </li>
+              <li>
+                <p>Issue proper invoices and send out monthly statement of accounts outstanding.</p>
+              </li>
+              <li>
+                <p>Track customers’ current and past-due balances and payment habits; &nbsp;review, and follow up aging unpaid receivables for collection.</p>
+              </li>
+              <li>
+                <p>Provide weekly Receivable Aging report.</p>
+              </li>
+              <li>
+                <p>Help establish and suggest credit policy, record keeping, billing, and processing payments .</p>
+              </li>
+
+            </ul><!-- Service Bullet List -->
+          </li><!-- Accounts Receivable -->
+
+          <li id="Payroll" class="pull-left">
+            <h1>Payroll</h1>
+            <h6 class="text-muted">
+Let us help you in your payroll needs, so you can focus on the growth and profitaliblty your business. We know payroll involves much more than simply issuing and handing out paychecks. As your payroll partner, we can eliminate these tedious tasks that is involved in procesing payroll.  By partnering, we will do all these for you:</h6>
+            <ul class="serviceBulletList">
+
+              <li>
+                <p>Maintain and make sure employee data are correct, complete, and current.</p>
+              </li>
+              <li>
+                <p>Assist with payroll setup in coordination with payroll processing companies.</p>
+              </li>
+              <li>
+                <p>Prepare and maintain W-4 validity and integrity of entries in the computer.</p>
+              </li>
+              <li>
+                <p>Collect pay period record hours worked, tips reported, and commissions or other compensation.</p>
+              </li>
+              <li>
+                <p>Calculate employee gross income based on W-4</p>
+              </li>
+              <li>
+                <p>Deduct taxes and other deductions i.e. health insurance, 401-K contributions, employee loans , garnishments etc.</p>
+              </li>
+              <li>
+                <p>Verify all quarterly/year end payroll records and tax forms</p>
+              </li>
+              <li>
+                <p>Remit taxes withheld i.e. forms 940 and 941</p>
+              </li>
+              <li>
+                <p>Track down and reconcile PTO, medical leave, disability leave.</p>
+              </li>
+              <li>
+                <p>Fill out wage/employment verification</p>
+              </li>
+
+            </ul><!-- Service Bullet List -->
+          </li><!-- Payroll -->
+
+          <li id="GeneralLedger" class="pull-left">
+            <h1>General Ledger</h1>
+            <h6 class="text-muted">There is nothing more important than having an insight into your business' finances. By partnering with us, we can help you better understand your business by:</h6>
+            <ul class="serviceBulletList">
+
+              <li>
+                <p>Ensuring&nbsp;the timely and accurate posting, balancing and reconciliations of general ledger(s) accounting records; prepare journal entries to log transactions</p>
+              </li>
+              <li>
+                <p>Obtaining, reviewing, analyzing&nbsp;and requesting clarification as needed of accounting information to resolve discrepancies, consolidate and coordinate monthly close with company-wide personnel, including international subsidiaries</p>
+              </li>
+              <li>
+                <p>Compiling&nbsp;and analyzing&nbsp;financial information in computerized accounting system to prepare financial statements and schedules on a monthly, quarterly, annual and as-needed basis</p>
+              </li>
+              <li>
+                <p>Applying accounting principles to assess the accuracy and proper entry of financial data and documentation; identify and recommend solutions to resolve discrepancies</p>
+              </li>
+              <li>
+                <p>Communicating&nbsp;and collaborating&nbsp;with accounting department to review and make recommendations for modifications to accounting systems and information management</p>
+              </li>
+              <li>
+                <p>Interpreting and providing&nbsp;analysis of accounting reports and financial information for internal non-finance personnel related to budgeting, expenditures, coding, and document preparation for accounting activities (available service)</p>
+              </li>
+              <li>
+                <p>Performing testing functions for compliance with Sarbanes-Oxley Act (SOX 404) which involves a review of accounting data and procedures to determine if appropriate controls are in place and effective; perform and/​or oversee performance re-work of accounting functions to verify accuracy and report results to SOX 404 compliance coordinator (available service)</p>
+              </li>
+              <li>
+                <p>Monitoring and maintaining electronic and hard-copy record keeping and records retention of financial information according to accounting requirements; maintain records of assets, liabilities, and other financial transactions (available service)</p>
+              </li>
+
+            </ul><!-- Service Bullet List -->
+          </li><!-- General Ledger -->
+
+          <li id="TaxPreparation" class="pull-left">
+            <h1>Tax Preparation</h1>
+            <h6 class="text-muted">
+One of the services we provide is tax processing. We reamain up-to-date on the changing tax laws that affect your business.  Our accountants are committed in ensuring that all tax-saving opportunities are made available to you while in full compliance with IRS. </h6>
+            <ul class="serviceBulletList">
+
+              <li>
+                <p>Corporate tax return preparation</p>
+              </li>
+              <li>
+                <p>Corporate tax compliance and planning</p>
+              </li>
+              <li>
+                <p>Individual income tax return preparation</p>
+              </li>
+              <li>
+                <p>Corporate and individual financial planning</p>
+              </li>
+
+            </ul><!-- Service Bullet List -->
+          </li><!-- Tax Preparation-->
+
+          <li id="OtherServices" class="pull-left">
+            <h1>Other Services</h1>
+            <h6 class="text-muted">
+If you are a business owner, chances are that one of your goals is to grow and to be profitable. Our company understands that business owners have more important things to do than managing their own books and this is where we can help you so that you can focus on your goals. Our services can provide you these tasks that allow you to continually evaluate your financial health and accomplish your business objectives. These are just example of what other services we can help you with:</h6>
+            <ul class="serviceBulletList">
+              <li>
+                <p>Assist with the management and coordination of month end closing procedures including account reconciliations and journal entries for both the balance sheet and income statement.​</p>
+              </li>
+              <li>
+                <p>Prepare supporting schedules related to monthly quarterly and annual financial statement close process.​</p>
+              </li>
+              <li>
+                <p>Investigate material variances in key general ledger accounts from prior periods to current periods.​</p>
+              </li>
+              <li>
+                <p>Perform special analysis/​research as required.​</p>
+              </li>
+              <li>
+                <p>Prepare monthly and quarterly parent company financial reports as well as periodic reports as required.​</p>
+              </li>
+              <li>
+                <p>Assist with departmental filing system and periodic archiving.​</p>
+              </li>
+              <li>
+                <p>In charge of the external audit process by preparing schedules, locating supporting documents and answering inquiries.​</p>
+              </li>
+              <li>
+                <p>Specialized in accounting data conversion and or migration</p>
+              </li>
+            </ul><!-- ./Other services we offer -->
+
+            <h3>Software Specialization</h3>
+            <ul>
+              <li>
+                <p>Oracle 11i</p>
+              </li>
+              <li>
+                <p>Netsuite</p>
+              </li>
+              <li>
+                <p>Quickbooks</p>
+              </li>
+              <li>
+                <p>Great Plains</p>
+              </li>
+              <li>
+                <p>MS Access</p>
+              </li>
+              <li>
+                <p>MS Excel</p>
+              </li>
+              <li>
+                <p>MS Word</p>
+              </li>
+              <li>
+                <p>MS Powerpoint</p>
+              </li>
+            </ul><!-- ./Software Specialization -->
+
+            <h3>Special Projects</h3>
+            <ul>
+              <li>
+                <p>Data implementation and integration</p>
+              </li>
+              <li>
+                <p>Data Migration from one system to another</p>
+              </li>
+              <li>
+                <p>Accounting set-up - cash or accrual basis</p>
+              </li>
+              <li>
+                <p>Chart of account set-up - listing all various accounts into the accounting CRM system</p>
+              </li>
+              <li>
+                <p>Sarbanes Oxley compliance - SOX 404</p>
+              </li>
+            </ul><!-- ./Special Projects -->
+
+            <ul>
+              <li>
+                <p>Software - SOP 97-2, SOP 08-1, SOP 09-3,&nbsp;</p>
+              </li>
+              <li>
+                <p>Contract Accounting - SOP 81-1, percentage of completion method or completed contact</p>
+              </li>
+              <li>
+                <p>Hardware - SAB 104</p>
+              </li>
+              <li>
+                <p>Vendor Specific Objective Evidence (VSOE) analysis</p>
+              </li>
+            </ul><!-- Revenue Recognition -->
+          </li><!-- Other Services -->
+
+        </ul><!-- ./list-unstyled -->
+      </div><!-- ./services detailed info column -->
+    </div><!-- ./row -->
+  </div><!-- ./container -->
 
 </div>
 {% endblock %}

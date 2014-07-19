@@ -2,28 +2,42 @@
 
 {% block content %} <!-- This block content is placed inside of base.html body -->
 <div ng-app="CygnusApp" ng-controller="CygnusCtrl">
-  <link href="{{ STATIC_URL }}css/styles.css" rel="stylesheet">
-
-
-  <!-- Navbar
+  
+  <!-- Navbar, fixed
   ================================================== -->
-  <div class="cygnus-nav" bs-affix>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-      <div class="inner">
-        <ul class="list-inline">
-          <!-- space between inline elements removed using the comments b/t li elements -->
-          <li><span><a href="/about/">About</a></span></li><!--
-          --><li><span><a href="/services/">Services</a></span></li><!--
-          --><li><span><a href="/contact/">Contact</a></span></li>
-        </ul>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-html="true" data-placement="left" data-animation="am-slide-left" bs-aside="aside">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">CygnusMgmt</a>
       </div>
+      <div class="collapse navbar-collapse">
+        <ul ng-controller="NavbarCtrl" ng-controller="NavBarCtrl" class="nav navbar-nav">
+          <li ng-class="isActive('about') ? 'active':'' "><a href="/about">About</a></li>
+
+          <li ng-class="isActive('services') ? 'active':'' " id="navServices">
+            <a href="/services">Services</a>
+          </li>
+
+          <li ng-class="isActive('services') ? 'activeCaret':'' " class="navServicesCaret" data-html="true" data-animation="am-slide-top" bs-dropdown="dropdown">
+            <span class="caret"></span>
+          </li>
+
+          <li ng-class="isActive('pricing') ? 'active':'' "><a href="/pricing">Pricing</a></li>
+          <li ng-class="isActive('contact') ? 'active':'' "><a href="/contact">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
     </div>
   </div>
 
-
   <!-- Our Firm
   ================================================== -->
-  <div class="masthead">
+  <div class="ourFirm">
     <div class="container">
       <h1>Our Firm</h1>
       <p >We are a full-service Accounting and Bookkeeping firm serving small to medium sized business throughout the Bay Area. Our company is dedicated to providing our clients with professional, personalized services and guidance in a wide range of accounting needs. We listen to your needs and goals and develop a plan to execute them to ensure financial viability of your business. Whether you are a current or prospective client, rest assured that you will receive our dedication to all the business principles to make you successful.</p>
@@ -53,7 +67,7 @@
 
   <!-- Team Members
   ================================================== -->
-  <div class="team">
+  <div class="team" href="#AccountsPayable">
     <div class="row">
     {% verbatim %}
       <div class="member col-xs-6 col-sm-4 col-md-3" ng-repeat="member in team">
