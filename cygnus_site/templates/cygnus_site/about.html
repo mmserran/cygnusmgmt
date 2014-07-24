@@ -8,7 +8,7 @@
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-html="true" data-placement="left" data-animation="am-slide-left" bs-aside="aside">
+        <button type="button" class="navbar-toggle" data-html="true" data-placement="left" data-animation="am-slide-left" data-template="{{ STATIC_URL }}partials/aside.html" bs-aside="aside">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -17,7 +17,7 @@
         <a class="navbar-brand" href="/">CygnusMgmt</a>
       </div>
       <div class="collapse navbar-collapse">
-        <ul ng-controller="NavbarCtrl" ng-controller="NavBarCtrl" class="nav navbar-nav">
+        <ul class="nav navbar-nav">
           <li ng-class="isActive('about') ? 'active':'' "><a href="/about">About</a></li>
 
           <li ng-class="isActive('services') ? 'active':'' " id="navServices">
@@ -25,25 +25,34 @@
           </li>
 
           <li ng-class="isActive('services') ? 'activeCaret':'' " class="navServicesCaret" data-html="true" data-animation="am-slide-top" bs-dropdown="dropdown">
-            <span class="caret"></span>
+            <a><span class="caret"></span></a>
           </li>
 
           <li ng-class="isActive('pricing') ? 'active':'' "><a href="/pricing">Pricing</a></li>
           <li ng-class="isActive('contact') ? 'active':'' "><a href="/contact">Contact</a></li>
         </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="pull-right">(510) 555-5555</li>
+          <li class="pull-right"><i class="fa fa-phone"></i></li>
+        </ul>
       </div><!--/.nav-collapse -->
     </div>
   </div>
 
+
   <!-- Our Firm
   ================================================== -->
-  <div class="ourFirm">
+  <div id="ourFirm" class="jumbotron">
     <div class="container">
       <h1>Our Firm</h1>
-      <p >We are a full-service Accounting and Bookkeeping firm serving small to medium sized business throughout the Bay Area. Our company is dedicated to providing our clients with professional, personalized services and guidance in a wide range of accounting needs. We listen to your needs and goals and develop a plan to execute them to ensure financial viability of your business. Whether you are a current or prospective client, rest assured that you will receive our dedication to all the business principles to make you successful.</p>
-      <a class="btn btn-primary btn-lg" role="button">View our Services</a>
+      <p>We are a full-service Accounting and Bookkeeping firm serving small to medium sized business throughout the Bay Area. Our company is dedicated to providing our clients with professional, personalized services and guidance in a wide range of accounting needs. We listen to your needs and goals and develop a plan to execute them to ensure financial viability of your business. Whether you are a current or prospective client, rest assured that you will receive our dedication to all the business principles to make you successful.</p>
+
+      <p><a class="btn btn-warning btn-lg pull-right" role="button" href="/services/">Learn more &raquo;</a></p>
     </div>
-  </div>
+
+  </div> <!-- ./jumbotron -->
+
 
   <br><br> <!-- remove later -->
 

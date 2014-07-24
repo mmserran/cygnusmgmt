@@ -23,7 +23,10 @@ def about(request):
 def services(request):
   template = loader.get_template('cygnus_site/services.html')
   context = RequestContext(request, {
-    'path' : request.path.split('/')[1],
+    'path'   : request.path.split('/')[1],
+    #'anchor' : request.GET['init'], this gives multikeydictkeyerror
+    #http://stackoverflow.com/questions/5895588/django-multivaluedictkeyerror-error-how-do-i-deal-with-it
+    'anchor' : request.GET.get('init', False),
   })
   return HttpResponse(template.render(context))
 

@@ -12,6 +12,8 @@
       LANDING PAGE STYLES
       CUSTOMER FEEDBACK STYLES
       SERVICES PAGE STYLES
+      PRICING PAGE STYLES
+      CONTACT PAGE STYLES
       ABOUT PAGE STYLES
       RESPONSIVE STYLES
 */
@@ -51,8 +53,43 @@ body {
   .jumbotron h1 {
     text-shadow: 2px 2px 12px #323232; }
 
+#largeGap {
+  line-height: 62px; }
+
+/*-- mobile menu --*/
 .aside-backdrop {
   z-index: 26; }
+
+.aside .aside-content .aside-body {
+  padding: 10px 10px; }
+.aside .btn-default {
+  border-color: #2c3e50;
+  color: #2c3e50; }
+
+#sitemap a {
+  /* all links */
+  color: #2c3e50;
+  text-decoration: none;
+  display: block;
+  /* expands clcikable area to full width of li*/
+  padding: 10px 10px; }
+#sitemap li:hover {
+  /* when hovering over list panel, light up link */ }
+  #sitemap li:hover > a {
+    color: #f39c12; }
+#sitemap li {
+  /* all list items, outer and inner*/ }
+#sitemap ul li {
+  /* inner service list items */
+  list-style: square; }
+#sitemap .active:hover,
+#sitemap .active {
+  background-color: #2c3e50; }
+  #sitemap .active:hover a,
+  #sitemap .active a {
+    color: white; }
+#sitemap .link {
+  font-family: droid_sans_bold; }
 
 /* NAVBAR STYLES
 -------------------------------------------------- */
@@ -81,6 +118,7 @@ body {
     .navbar .navbar-toggle:active .icon-bar,
     .navbar .navbar-toggle:focus .icon-bar {
       background-color: #f39c12; }
+  .navbar .navbar-right li,
   .navbar .navbar-brand,
   .navbar .navbar-nav > li > a {
     /* brand name and normal links have font color $footer-dark */
@@ -89,6 +127,11 @@ body {
   .navbar #navServices a {
     /* services and its caret should be right next to each other */
     padding-right: 0; }
+  .navbar .navbar-right li {
+    padding: 15px 5px 10px 5px; }
+    .navbar .navbar-right li i {
+      font-size: 19px;
+      margin: 2px 2px; }
   .navbar .navbar-brand:hover,
   .navbar .navbar-nav > li > a:hover,
   .navbar #navServicesCaret:focus,
@@ -107,8 +150,6 @@ body {
     margin-left: -108px;
     text-align: center; }
   .navbar .navServicesCaret {
-    padding: 15px 10px;
-    padding-bottom: 16px;
     background-color: white; }
     .navbar .navServicesCaret span {
       color: #2c3e50; }
@@ -173,12 +214,15 @@ footer {
 
 /* LANDING PAGE STYLES
 -------------------------------------------------- */
+#ourFirm,
 #hero {
   border-bottom: 6px solid #2980b9;
   padding-top: 60px;
   /* Learn More Btn */ }
+  #ourFirm p,
   #hero p {
     text-shadow: 2px 2px 12px #323232; }
+  #ourFirm .btn-warning,
   #hero .btn-warning {
     text-shadow: none;
     /* box shadow */
@@ -242,10 +286,10 @@ footer {
 /* featurettes */
 .featurette span {
   padding-top: 36px;
-  border-top: 5px solid #2980b9; }
+  border-top: 6px solid #2980b9; }
 
 .featurette:hover span {
-  border-top: 6px solid #f39c12; }
+  border-color: #f39c12; }
 
 .featurette-image {
   margin: 0 auto; }
@@ -348,11 +392,117 @@ footer {
   .services h6 {
     font-size: 12px; }
   .services ul li p {
-    font-size: 12px; } }
-#serviceNav {
+    font-size: 12px; }
+
+  #serviceHero h1 {
+    font-size: 62px; } }
+#serviceSidenav {
   position: fixed;
   top: 100px; }
 
+#serviceSubnav {
+  position: fixed;
+  top: 60px; }
+
+.services li h1 {
+  padding-top: 62px; }
+.services li span {
+  border-bottom: 6px solid #2980b9;
+  padding-bottom: 17px; }
+.services li ul li {
+  list-style-type: square; }
+.services li:hover span {
+  border-color: #f39c12; }
+
+#serviceHero {
+  height: 200px; }
+
+#sidenavLine {
+  margin: 0; }
+
+/*-- scrollspy --*/
+#serviceSidenav {
+  border: 2px solid #2980b9;
+  -webkit-box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.2);
+  -moz-box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.2);
+  box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.2); }
+  #serviceSidenav .active:not(:first-of-type) {
+    /* currently active link */ }
+    #serviceSidenav .active:not(:first-of-type) a:hover,
+    #serviceSidenav .active:not(:first-of-type) a {
+      background-color: #2980b9;
+      color: white !important; }
+  #serviceSidenav li a:hover {
+    /* normal link */
+    background-color: white;
+    color: #f39c12; }
+  #serviceSidenav a {
+    color: #2c3e50; }
+
+/* PRICING PAGE STYLES
+-------------------------------------------------- */
+#pricing .no,
+#pricing .yes {
+  font-size: 24px;
+  padding: 0 0; }
+#pricing .no {
+  color: #c0392b; }
+#pricing .yes {
+  color: #27ae60; }
+#pricing .table {
+  margin-bottom: 0;
+  border: 2px solid #2980b9; }
+  #pricing .table th {
+    border-top: none;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    background-color: #2980b9; }
+  #pricing .table .serviceTableHeader {
+    text-align: left;
+    padding-left: 20px; }
+  #pricing .table td {
+    text-align: center;
+    vertical-align: middle !important; }
+#pricing .overflowX {
+  overflow-x: auto; }
+#pricing tr:nth-child(2n+1) {
+  background-color: rgba(50, 50, 50, 0.026); }
+#pricing tr:hover {
+  background-color: rgba(243, 156, 18, 0.5); }
+#pricing .tableNotes {
+  margin: 4px 0; }
+
+@media (max-width: 1000px) {
+  #pricing {
+    font-size: 12px; }
+    #pricing .no, #pricing .yes {
+      font-size: 16px; } }
+/* CONTACT PAGE STYLES
+-------------------------------------------------- */
+#contact {
+  background-color: #2980b9;
+  padding: 60px 0;
+  /* auto doesn't work with padding */ }
+  #contact h1 {
+    font-weight: bold; }
+  #contact #contactMessage {
+    height: 400px; }
+  #contact .contactForm {
+    width: 62%; }
+    #contact .contactForm label {
+      font-weight: normal; }
+    #contact .contactForm input {
+      margin: 10px 0; }
+    #contact .contactForm .form-group {
+      margin-bottom: 0; }
+
+/* bootstrap - xs */
+@media (max-width: 768px) {
+  #contact .contactForm {
+    width: 90%; }
+  #contact #contactMessage {
+    height: 200px; } }
 /* ABOUT PAGE STYLES
 -------------------------------------------------- */
 .team .row {
@@ -363,7 +513,7 @@ footer {
   text-align: center; }
 
 .ourFirm {
-  background-image: url("../img/The_two_bridges_insta.jpg");
+  background-color: #2980b9;
   background-size: 100% auto;
   /* width and height, can be %, px or whatever. */
   height: 480px;
@@ -372,7 +522,7 @@ footer {
   .ourFirm p, .ourFirm h1 {
     text-shadow: 2px 2px #323232; }
   .ourFirm p {
-    font-size: 20px; }
+    font-size: 24px; }
 
 /* RESPONSIVE STYLES
 -------------------------------------------------- */
@@ -384,12 +534,21 @@ footer {
 
   /*--- landing page ---*/
   /* size down the quote bubble text */
+  #ourFirm,
   #hero {
     /* Learn More Btn */ }
+    #ourFirm h1,
     #hero h1 {
       font-size: 30px; }
+    #ourFirm p,
+    #hero p {
+      font-size: 14px; }
+    #ourFirm .btn-warning,
     #hero .btn-warning {
       margin-right: 6%; }
+
+  #hero .imageslide .slider-content p {
+    font-size: 24px; }
 
   #feedback h1 span {
     /* title: Customer Feedback@xs */
@@ -400,14 +559,12 @@ footer {
       font-size: 100px; }
   #feedback p {
     /* quote text @xs */
-    font-size: 14px; }
+    font-size: 14px;
+    margin: 0 6px; }
   #feedback h4 {
     /* quote author @xs */
-    font-size: 18px; }
-
-  /* size down the slider text */
-  .imageslide .slider-content p {
-    font-size: 24px; }
+    font-size: 18px;
+    margin: 4px 10px 0 10px; }
 
   .featurette {
     padding: 0 10px; }

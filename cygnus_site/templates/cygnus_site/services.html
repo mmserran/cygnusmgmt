@@ -8,7 +8,7 @@
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-html="true" data-placement="left" data-animation="am-slide-left" bs-aside="aside">
+        <button type="button" class="navbar-toggle" data-html="true" data-placement="left" data-animation="am-slide-left" data-template="{{ STATIC_URL }}partials/asideService.html" bs-aside="aside">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -17,7 +17,7 @@
         <a class="navbar-brand" href="/">CygnusMgmt</a>
       </div>
       <div class="collapse navbar-collapse">
-        <ul ng-controller="NavbarCtrl" class="nav navbar-nav">
+        <ul class="nav navbar-nav">
           <li ng-class="isActive('about') ? 'active':'' "><a href="/about">About</a></li>
 
           <li ng-class="isActive('services') ? 'active':'' " id="navServices">
@@ -25,38 +25,53 @@
           </li>
 
           <li ng-class="isActive('services') ? 'activeCaret':'' " class="navServicesCaret" data-html="true" data-animation="am-slide-top" bs-dropdown="dropdown">
-            <span class="caret"></span>
+            <a><span class="caret"></span></a>
           </li>
 
           <li ng-class="isActive('pricing') ? 'active':'' "><a href="/pricing">Pricing</a></li>
           <li ng-class="isActive('contact') ? 'active':'' "><a href="/contact">Contact</a></li>
         </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="pull-right">(510) 555-5555</li>
+          <li class="pull-right"><i class="fa fa-phone"></i></li>
+        </ul>
       </div><!--/.nav-collapse -->
     </div>
   </div>
 
+  <div ng-init="gotoElement('{{ anchor }}')" class="container">
 
-<br><br><br>
-  <div class="container">
+    <!-- NON-MOBILE: Sidenav, fixed -->
     <div class="row">
-      <div class="col-xs-3">
+      <div class="hidden-xs col-sm-3">
 
-        <ul id="serviceNav" class="nav">
-          <li data-target="#modals" bs-scrollspy>
-            <a href="#modals">Modal</a>
-            <ul class="nav">
-              <li data-target="#GeneralLedger" bs-scrollspy><a href="#GeneralLedger">General Ledger</a></li>
-              <li data-target="services#/other-services" bs-scrollspy><a href="/services/#other-services">Other Services</a></li>
-            </ul>
-          </li>
+        <ul id="serviceSidenav" class="panel panel-primary nav">
+          <li id="topSidenav" data-target="#top" bs-scrollspy><a ng-click="gotoElement('top')">Top</a><hr id="sidenavLine"></li>
+          <li data-target="#accounts-payable" bs-scrollspy><a ng-click="gotoElement('accounts-payable')">Accounts Payable</a></li>
+          <li data-target="#accounts-receivable" bs-scrollspy><a ng-click="gotoElement('accounts-receivable')">Accounts Receivable</a></li>
+          <li data-target="#payroll" bs-scrollspy><a ng-click="gotoElement('payroll')">Payroll</a></li>
+          <li data-target="#general-ledger" bs-scrollspy><a ng-click="gotoElement('general-ledger')">General Ledger</a></li>
+          <li data-target="#tax-preparation" bs-scrollspy><a ng-click="gotoElement('tax-preparation')">Tax Preparation</a></li>
+          <li data-target="#other-services" bs-scrollspy><a ng-click="gotoElement('other-services')">Other Services</a></li>
         </ul>
 
       </div><!-- ./scrollspy column -->
-      <div class="col-xs-9">
+      <!-- Main Content -->
+      <div class="col-xs-12 col-sm-9">
         <ul class="services list-unstyled">
 
-          <li id="AccountsPayable" class="pull-left">
-            <h1>Accounts Payable</h1>
+<br  id="top" id="largeGap">
+          <!-- Our Firm
+          ================================================== -->
+          <li>
+          <div id="serviceHero" class="jumbotron">
+              <h1 class="text-center">Services</h1>
+          </div> <!-- ./jumbotron -->
+          </li>
+          <li id="accounts-payable" class="pull-left">
+            <h1><span>Accounts Payable</span></h1>
+            <hr />
             <h6 class="text-muted">
 Accounts Payable is a complex process. We understand the importance of having a strong systems of control in place to ensure timely and accurate processing. At Cygnus, we do the following:</h6>
             <ul class="serviceBulletList">
@@ -119,8 +134,9 @@ Accounts Payable is a complex process. We understand the importance of having a 
             </ul><!-- Service Bullet List -->
           </li><!-- Accounts Payable -->
 
-          <li id="AccountsReceivable" class="pull-left">
-            <h1>Accounts Receivable</h1>
+          <li id="accounts-receivable" class="pull-left">
+            <h1><span>Accounts Receivable</span></h1>
+            <hr />
             <h6 class="text-muted">Cynus believes in the saying "it takes money to make money". Whether your business is large or small, you need to have policies and practices in place to insure accounts are managed in a consistent manner. We do these in your behalf as part of our service offering:</h6>
             <ul class="serviceBulletList">
 
@@ -161,8 +177,9 @@ Accounts Payable is a complex process. We understand the importance of having a 
             </ul><!-- Service Bullet List -->
           </li><!-- Accounts Receivable -->
 
-          <li id="Payroll" class="pull-left">
-            <h1>Payroll</h1>
+          <li id="payroll" class="pull-left">
+            <h1><span>Payroll</span></h1>
+            <hr />
             <h6 class="text-muted">
 Let us help you in your payroll needs, so you can focus on the growth and profitaliblty your business. We know payroll involves much more than simply issuing and handing out paychecks. As your payroll partner, we can eliminate these tedious tasks that is involved in procesing payroll.  By partnering, we will do all these for you:</h6>
             <ul class="serviceBulletList">
@@ -201,8 +218,9 @@ Let us help you in your payroll needs, so you can focus on the growth and profit
             </ul><!-- Service Bullet List -->
           </li><!-- Payroll -->
 
-          <li id="GeneralLedger" class="pull-left">
-            <h1>General Ledger</h1>
+          <li id="general-ledger" class="pull-left">
+            <h1><span>General Ledger</span></h1>
+            <hr />
             <h6 class="text-muted">There is nothing more important than having an insight into your business' finances. By partnering with us, we can help you better understand your business by:</h6>
             <ul class="serviceBulletList">
 
@@ -234,8 +252,9 @@ Let us help you in your payroll needs, so you can focus on the growth and profit
             </ul><!-- Service Bullet List -->
           </li><!-- General Ledger -->
 
-          <li id="TaxPreparation" class="pull-left">
-            <h1>Tax Preparation</h1>
+          <li id="tax-preparation" class="pull-left">
+            <h1><span>Tax Preparation</span></h1>
+            <hr />
             <h6 class="text-muted">
 One of the services we provide is tax processing. We reamain up-to-date on the changing tax laws that affect your business.  Our accountants are committed in ensuring that all tax-saving opportunities are made available to you while in full compliance with IRS. </h6>
             <ul class="serviceBulletList">
@@ -256,8 +275,9 @@ One of the services we provide is tax processing. We reamain up-to-date on the c
             </ul><!-- Service Bullet List -->
           </li><!-- Tax Preparation-->
 
-          <li id="OtherServices" class="pull-left">
-            <h1>Other Services</h1>
+          <li id="other-services" class="pull-left">
+            <h1><span>Other Services</span></h1>
+            <hr />
             <h6 class="text-muted">
 If you are a business owner, chances are that one of your goals is to grow and to be profitable. Our company understands that business owners have more important things to do than managing their own books and this is where we can help you so that you can focus on your goals. Our services can provide you these tasks that allow you to continually evaluate your financial health and accomplish your business objectives. These are just example of what other services we can help you with:</h6>
             <ul class="serviceBulletList">
@@ -350,10 +370,10 @@ If you are a business owner, chances are that one of your goals is to grow and t
             </ul><!-- Revenue Recognition -->
           </li><!-- Other Services -->
 
-        </ul><!-- ./list-unstyled -->
-      </div><!-- ./services detailed info column -->
+        </ul><!-- ./services list; list-unstyled -->
+      </div><!-- ./Main Content -->
     </div><!-- ./row -->
   </div><!-- ./container -->
-
+    <br id="largeGap" />
 </div>
 {% endblock %}

@@ -6,9 +6,9 @@
   <!-- Navbar, fixed
   ================================================== -->
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+    <div ng-controller="NavbarCtrl" class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-html="true" data-placement="left" data-animation="am-slide-left" bs-aside="aside">
+        <button type="button" class="navbar-toggle" data-html="true" data-placement="left" data-animation="am-slide-left" data-template="{{ STATIC_URL }}partials/aside.html" bs-aside="aside">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -17,7 +17,7 @@
         <a class="navbar-brand" href="/">CygnusMgmt</a>
       </div>
       <div class="collapse navbar-collapse">
-        <ul ng-controller="NavbarCtrl" class="nav navbar-nav">
+        <ul class="nav navbar-nav">
           <li ng-class="isActive('about') ? 'active':'' "><a href="/about">About</a></li>
 
           <li ng-class="isActive('services') ? 'active':'' " id="navServices">
@@ -25,27 +25,216 @@
           </li>
 
           <li ng-class="isActive('services') ? 'activeCaret':'' " class="navServicesCaret" data-html="true" data-animation="am-slide-top" bs-dropdown="dropdown">
-            <span class="caret"></span>
+            <a><span class="caret"></span></a>
           </li>
 
           <li ng-class="isActive('pricing') ? 'active':'' "><a href="/pricing">Pricing</a></li>
           <li ng-class="isActive('contact') ? 'active':'' "><a href="/contact">Contact</a></li>
         </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="pull-right">(510) 555-5555</li>
+          <li class="pull-right"><i class="fa fa-phone"></i></li>
+        </ul>
       </div><!--/.nav-collapse -->
     </div>
   </div>
 
+  <br id="largeGap">
+
   <!-- Get Started with Cygnus Management
   ================================================== -->
-<br><br><br>
   <div class="container">
-    <h1>Get Started With Cygnus Management<h1>
-    <h1><mute>test</mute></h1>
-
-
-  {{ path }}
-
+    <h1 class="text-center">Get Started With Cygnus Management<h1>
   </div>
+
+  <!-- Pricing Table
+  ================================================== -->
+  <div id="pricing" class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-1"></div>
+      <div class="col-md-8 col-sm-10 col-xs-12">
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <th>&nbsp</th>
+              <th>Starter</th>
+              <th>Silver</th>
+              <th>Gold</th>
+              <th>Platinum</th>
+              <th>Diamond</th>
+            </tr><!-- ./Header row -->
+            <tr>
+              <td class="serviceTableHeader">Flat Rate Pricing</td>
+              <td>$500</td>
+              <td>$850</td>
+              <td>$1,250</td>
+              <td>$1,600</td>
+              <td>$2,500</td>
+            </tr><!-- ./Flat Rate Pricing -->
+            <tr>
+              <td class="serviceTableHeader">Transaction Volume</td>
+              <td>&lt50</td>
+              <td>&lt100</td>
+              <td>&lt200</td>
+              <td>&lt300</td>
+              <td>&lt600</td>
+            </tr><!-- ./Transaction Volume -->
+            <tr>
+              <td class="serviceTableHeader">Employees</td>
+              <td>1-2</td>
+              <td>1-5</td>
+              <td>1-6</td>
+              <td>1-8</td>
+              <td>1-10</td>
+            </tr><!-- ./Employees -->
+            <tr>
+              <td class="serviceTableHeader">Credit Card Acct Reconciliation</td>
+              <td>1</td>
+              <td>1-2</td>
+              <td>1-4</td>
+              <td>5-6</td>
+              <td>6-10</td>
+            </tr><!-- ./Credit Card Acct Reconciliation -->
+            <tr>
+              <td class="serviceTableHeader">Accounts Payable</td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+            </tr><!-- ./Accounts Payable -->
+            <tr>
+              <td class="serviceTableHeader">Vendor Payment Processing</td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+            </tr><!-- ./Vendor Payment Processing -->
+            <tr>
+              <td class="serviceTableHeader">Expense Report</td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+            </tr><!-- ./Expense Report -->
+            <tr>
+              <td class="serviceTableHeader">Accounts Receivable</td>
+              <td class="no"></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+            </tr><!-- ./Accounts Receivable -->
+            <tr>
+              <td class="serviceTableHeader"> -- Collections 90 days and over</td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+            </tr><!-- ./ ** Collections 90 days and over -->
+            <tr>
+              <td class="serviceTableHeader"> -- Payment Applications</td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+            </tr><!-- ./ ** Payment Applications -->
+            <tr>
+              <td class="serviceTableHeader">Payroll</td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+            </tr><!-- ./Payroll -->
+            <tr>
+              <td class="serviceTableHeader">Payroll Tax Filing*</td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr><!-- ./Payroll Tax Filing* -->
+            <tr>
+              <td class="serviceTableHeader">Sales and Use Tax Filing**</td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td>1</td>
+              <td>3</td>
+              <td>5</td>
+            </tr><!-- ./Sales and Use Tax Filing** -->
+            <tr>
+              <td class="serviceTableHeader">Financial Statements</td>
+              <td>Annually</td>
+              <td>Annually</td>
+              <td>Quarterly</td>
+              <td>Monthly</td>
+              <td>Monthly</td>
+            </tr><!-- ./Financial Statements -->
+            <tr>
+              <td class="serviceTableHeader">Bank Reconciliation</td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+            </tr><!-- ./Bank Reconciliation -->
+            <tr>
+              <td class="serviceTableHeader">Audit Support</td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+            </tr><!-- ./Audit Support -->
+            <tr>
+              <td class="serviceTableHeader">Form 1099</td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td class="no"></td>
+              <td class="yes"><i class="fa fa-check"></i></td>
+            </tr><!-- ./Form 1099 -->
+          </table>
+        </div><!-- ./table-responsive -->
+        <div>
+          <p class="tableNotes">* Additional payroll per employee: $50</p>
+          <p class="tableNotes">**Additional state tax and payroll filing: $50 each forms </p>
+        </div>
+
+
+
+        <h2>Flat Rate Pricing:</h2>
+        <p>Our fee for accounting service is based upon the volume of transactions and also on the overall complexity of your business. Factors affecting our fee structure include:</p>
+        <ul>
+          <li><p>Number of customer and vendors invoices</p></li>   
+          <li><p>Number of checks written per period</p></li>
+          <li><p>Number of employees and pay frequency</p></li>
+          <li><p>Financial and management reports requirement</p></li>
+          <li><p>Number of bank accounts and credit card accounts to be reconciled</p></li>
+          <li><p>Inventory</p></li>
+          <li><p>Current state of your accounting records</p></li>
+          <li><p>other misc. items</p></li>
+        </ul>
+        <p>We can also customized our services in accordance to your business.</p>
+        <p>Want to Learn More?  Call us Today</p>
+
+      </div><!-- ./pricing table col -->
+      <div class="col-md-2 col-sm-1"></div>
+    </div><!-- ./row -->
+  </div>
+
+  <!-- Additional Comments
+  ================================================== -->
+  <br id="largeGap">
+
+
+
 
 </div>
 {% endblock %}
